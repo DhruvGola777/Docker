@@ -1,0 +1,31 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - DB_USER=postgres
+      - DB_PASSWORD=mysecretpassword
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=learndocker
+    depends_on:
+      - db
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=learndocker
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

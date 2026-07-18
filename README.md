@@ -1,4 +1,4 @@
-# Docker Learning Project
+# Docker Learning Project 🐳
 
 Welcome to my Docker learning repository! This project documents my journey learning how to containerize applications using Docker and Docker Compose.
 
